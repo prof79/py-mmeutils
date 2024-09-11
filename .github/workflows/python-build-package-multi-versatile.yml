@@ -138,7 +138,7 @@ jobs:
         find . -name *.whl -exec cp -f \{} . \;
         find . -name *.tar.gz -exec cp -f \{} . \;
 
-        find . -type d -delete
+        find . -maxdepth 1 -type d -exec rm -rf \{} \;
 
     - name: Display structure of downloaded files
       working-directory: .
