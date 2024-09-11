@@ -121,8 +121,8 @@ jobs:
  
     - name: Consolidate files
       run: |
-        cp -f **/*.whl .
-        cp -f **/*.tar.gz .
+        find . -name *.whl -exec cp -f \{} . \;
+        find . -name *.tar.gz -exec cp -f \{} . \;
 
     - name: Display structure of downloaded files
       run: ls -R ./dist
