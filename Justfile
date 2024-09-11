@@ -5,4 +5,4 @@ test:
     py -m pytest -v
 
 clean:
-    rm -rf build/ dist/ **/*.egg-info/
+    rm -rf build/ dist/ **/__pycache__/ **/*.egg-info/
