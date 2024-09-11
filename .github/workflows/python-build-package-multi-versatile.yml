@@ -55,6 +55,13 @@ jobs:
 
         Write-Output "VERSION_NAME=$versionName" >> "${Env:GITHUB_ENV}"
 
+    - name: Set artifact name variable
+      shell: pwsh
+      run: |
+        $artifactName = ${Env:PRODUCT_NAME} + ${Env:RUNNER_OS}
+
+        Write-Output "ARTIFACT_NAME=$artifactName" >> ${Env:GITHUB_ENV}"
+
     - name: Show build variables
       shell: pwsh
       run: |
@@ -63,6 +70,7 @@ jobs:
         Write-Host "Commit short SHA: ${Env:SHORT_SHA}"
         Write-Host "Product name: ${Env:PRODUCT_NAME}"
         Write-Host "Version name: ${Env:VERSION_NAME}"
+        Write-Host "Artifact name: ${Env:ARTIFACT_NAME}"
 
     - name: Set up Python 3.9
       uses: actions/setup-python@v4
@@ -86,7 +94,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.PRODUCT_NAME }}
+        name: ${{ env.ARTIFACT_NAME }}
         path: |
           dist/*
 
@@ -108,7 +116,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v4
       with:
-        name: ${{ env.PRODUCT_NAME }}
+        name: ${{ env.ARTIFACT_NAME }}
         path: dist
  
     - name: Display structure of downloaded files
