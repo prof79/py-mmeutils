@@ -1,0 +1,136 @@
+# This workflow will install Python dependencies and
+# build a Python module package for multiple platforms
+# on demand or version tag push.
+
+name: Python - Package Module - Multi-Platform - Versatile
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+  workflow_dispatch:
+
+env:
+  PRODUCT_NAME: mmeutils
+
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        os:
+          - macos-11
+          - ubuntu-20.04
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    outputs:
+      short-sha: ${{ steps.short-hash.outputs.short-sha }}
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Set short commit hash variable
+      id: short-hash
+      shell: pwsh
+      run: |
+        $shortHash = ${Env:GITHUB_SHA}.Substring(0, 7)
+
+        Write-Output "SHORT_SHA=$shortHash" >> "${Env:GITHUB_ENV}"
+        Write-Output "short-sha=$shortHash" >> "${Env:GITHUB_OUTPUT}"
+
+    - name: Set version name variable
+      shell: pwsh
+      run: |
+        $versionName = ${Env:SHORT_SHA}
+        
+        if (${Env:GITHUB_REF} -match '^refs/tags/v')
+        {
+          $versionName = ${Env:GITHUB_REF_NAME}
+        }
+
+        Write-Output "VERSION_NAME=$versionName" >> "${Env:GITHUB_ENV}"
+
+    - name: Show build variables
+      shell: pwsh
+      run: |
+        Write-Host "GitHub ref: ${{ github.ref }}"
+        Write-Host "GitHub ref name: ${{ github.ref_name }}"
+        Write-Host "Commit short SHA: ${Env:SHORT_SHA}"
+        Write-Host "Product name: ${Env:PRODUCT_NAME}"
+        Write-Host "Version name: ${Env:VERSION_NAME}"
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+
+    - name: Install dependencies
+      shell: pwsh
+      run: |
+        python -m pip install --upgrade pip
+
+        if (Test-Path requirements.txt -PathType Leaf) { pip install -r requirements.txt }
+
+        if (Test-Path requirements-dev.txt -PathType Leaf) { pip install -r requirements-dev.txt }
+
+    - name: Build package
+      shell: pwsh
+      run: |
+        pyproject-build
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: |
+          dist/*
+
+
+  publish:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+
+    - name: Create dist directory
+      run: mkdir dist
+
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        path: dist
+ 
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: dist
+  
+    - name: Publish on-demand release
+      if: ${{ ! startsWith(github.ref, 'refs/tags/v') }}
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "ondemand"
+        prerelease: true
+        title: "Development Release ${{ needs.build.outputs.short-sha }}"
+        files: |
+          dist/*
+
+    - name: Publish version release
+      if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: ${{ github.ref_name }}
+        prerelease: false
+        title: "Release ${{ github.ref_name }}"
+        files: |
+          dist/*
