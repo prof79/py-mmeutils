@@ -138,6 +138,8 @@ jobs:
         find . -name *.whl -exec cp -f \{} . \;
         find . -name *.tar.gz -exec cp -f \{} . \;
 
+        find . -type d -delete
+
     - name: Display structure of downloaded files
       working-directory: .
       run: ls -R ./dist
@@ -167,4 +169,5 @@ jobs:
           dist/*.tar.gz
   
     - name: Publish package distributions to PyPI
+      # See: https://github.com/pypa/gh-action-pypi-publish
       uses: pypa/gh-action-pypi-publish@release/v1
