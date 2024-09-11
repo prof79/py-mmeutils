@@ -118,6 +118,8 @@ jobs:
 
     permissions:
       contents: write
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
 
     steps:
 
@@ -163,3 +165,6 @@ jobs:
         files: |
           dist/*.whl
           dist/*.tar.gz
+  
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
