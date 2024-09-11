@@ -169,5 +169,6 @@ jobs:
           dist/*.tar.gz
   
     - name: Publish package distributions to PyPI
+      if: ${{ startsWith(github.ref, 'refs/tags/v') }}
       # See: https://github.com/pypa/gh-action-pypi-publish
       uses: pypa/gh-action-pypi-publish@release/v1
