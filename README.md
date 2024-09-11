@@ -10,6 +10,6 @@ $ py -m pip install mmeutils
 
 ## Version History
 
-### 0.0.1
+### 0.0.1-0.0.3
 
 Alpha in-progress
