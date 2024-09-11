@@ -58,7 +58,7 @@ jobs:
     - name: Set artifact name variable
       shell: pwsh
       run: |
-        $artifactName = ${Env:PRODUCT_NAME} + ${Env:RUNNER_OS}
+        $artifactName = "${Env:PRODUCT_NAME}-${Env:VERSION_NAME}-${Env:RUNNER_OS}"
 
         Write-Output "ARTIFACT_NAME=$artifactName" >> "${Env:GITHUB_ENV}"
 
