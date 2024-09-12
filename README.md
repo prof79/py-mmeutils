@@ -2,6 +2,8 @@
 
 A simple collection of personal Python utility functions required in multiple hobbyist projects.
 
+Documentation: https://mmeutils.readthedocs.io
+
 ## Installation
 
 ```shell
