@@ -1,7 +1,7 @@
 """File Input/Output Utility Functions"""
 
 
-from typing import List, Optional
+from typing import List, Optional, Union
 
 
 __all__: List[str] = [
@@ -16,14 +16,14 @@ from logging import debug
 from pathlib import Path
 
 
-def read_text_file_to_string(file_name: Optional[str|Path]) -> str:
+def read_text_file_to_string(file_name: Optional[Union[str, Path]]) -> str:
     """Read contents of a text file into a single string.
 
     Lines will be normalized ie. stripped and empty lines discarded.
     Lines will then be joined using the line-separation character (\\n).
 
     :param file_name: Name/path of the file to process.
-    :type file_name: Optional[str|Path]
+    :type file_name: Optional[[Union[str, Path]]
 
     :return: A string of all the non-empty lines joined by \\n.
     :rtype: str
@@ -35,7 +35,7 @@ def read_text_file_to_string(file_name: Optional[str|Path]) -> str:
         return '\n'.join(lines)
 
 
-def validate_json_file(file_name: Optional[str|Path]) -> bool:
+def validate_json_file(file_name: Optional[Union[str, Path]]) -> bool:
     """Validate that a JSON file is neither empty nor invalid.
 
     Empty means all whitespace, an empty object or an empty array.
@@ -43,7 +43,7 @@ def validate_json_file(file_name: Optional[str|Path]) -> bool:
     And the file must exist in the first place.
 
     :param file_name: Name/path of the JSON file to check.
-    :type file_name: Optional[str|Path]
+    :type file_name: Optional[Union[str, Path]]
 
     :return: True if file exists and has valid non-empty JSON content.
         False otherwise.

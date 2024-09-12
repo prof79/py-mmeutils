@@ -9,7 +9,7 @@ __all__: List[str] = [
 ]
 
 
-def strip_discard_empty_lines(lines: Iterable[str]) -> list[str]:
+def strip_discard_empty_lines(lines: Iterable[str]) -> List[str]:
     """Sanitizes string lines in an iterable such that:
 
     * Leading and trailing whitespace is discarded ("strip()")
