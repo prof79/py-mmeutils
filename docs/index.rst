@@ -11,8 +11,7 @@ mmeutils documentation
    :caption: Contents:
 
    modules
-   sphinx
-   markdown
+   internal
    genindex
 
 
