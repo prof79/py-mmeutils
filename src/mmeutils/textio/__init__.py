@@ -16,10 +16,10 @@ def strip_discard_empty_lines(lines: Iterable[str]) -> List[str]:
     * Empty lines (including whitespace-only) are discarded
 
     :param lines: An iterable of string lines to process
-    :type lines: Iterable[st]
+    :type lines: Iterable[str]
 
     :return: The list of normalized (non-empty) strings.
-    :rtype: list[str]
+    :rtype: List[str]
     """
     return list(
         [
