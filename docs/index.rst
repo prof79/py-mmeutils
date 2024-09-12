@@ -10,7 +10,7 @@ mmeutils documentation
    :maxdepth: 2
    :caption: Contents:
 
-   References
+   references
 
 
 .. autofunction:: mmeutils.textio.strip_discard_empty_lines
