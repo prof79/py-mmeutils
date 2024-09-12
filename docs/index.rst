@@ -7,14 +7,16 @@ mmeutils documentation
 ======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    modules
-   references
+   sphinx
    markdown
    genindex
 
+
+Functions at a glance:
 
 .. autofunction:: mmeutils.text.strip_discard_empty_lines
 
