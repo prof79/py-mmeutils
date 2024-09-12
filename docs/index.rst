@@ -12,6 +12,7 @@ mmeutils documentation
 
    genindex
    references
+   markdown
 
 
 .. autofunction:: mmeutils.text.strip_discard_empty_lines
