@@ -7,4 +7,4 @@ documentation for details.
 
 You may also use `MyST <https://myst-parser.readthedocs.io/en/latest/intro.html>`_.
 
-Sphinx homepage: `https://www.sphinx-doc.org/en/master/ <https://www.sphinx-doc.org/en/master/>`_
+Sphinx homepage: https://www.sphinx-doc.org/en/master/
