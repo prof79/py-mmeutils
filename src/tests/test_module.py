@@ -1,11 +1,20 @@
 # Unit tests
 
+
+def setup() -> None:
+    import os
+    import sys
+
+    sys.path.append(os.path.abspath('./src'))
+
+
 def test_always_success() -> None:
     assert True
 
 
 def test_strip_discard_empty_lines_1() -> None:
-    from src.mmeutils.textio import strip_discard_empty_lines
+    setup()
+    from mmeutils.textio import strip_discard_empty_lines
 
     test_1 = """
           
