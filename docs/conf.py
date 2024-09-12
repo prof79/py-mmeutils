@@ -40,6 +40,6 @@ sys.path.insert(0, os.path.abspath("../src"))
 myst_enable_extensions = [
     'colon_fence',
     'dollarmath',
-    'fiedlist',
+    'fieldlist',
     'tasklist',
 ]
