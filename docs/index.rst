@@ -10,7 +10,6 @@ mmeutils documentation
    :maxdepth: 3
    :caption: Contents:
 
-   self
    apidoc/modules
    internal
    genindex
