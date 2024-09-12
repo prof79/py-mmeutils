@@ -10,9 +10,10 @@ mmeutils documentation
    :maxdepth: 2
    :caption: Contents:
 
-   genindex
+   modules
    references
    markdown
+   genindex
 
 
 .. autofunction:: mmeutils.text.strip_discard_empty_lines
