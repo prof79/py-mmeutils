@@ -15,3 +15,8 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+.. autofunction:: mmeutils.textio.strip_discard_empty_lines
+
+.. autofunction:: mmeutils.fileio.read_text_file_to_string
+
+.. autofunction:: mmeutils.fileio.validate_json_file
