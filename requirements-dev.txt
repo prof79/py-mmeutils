@@ -1,4 +1,6 @@
 build
 pytest
 Sphinx
+sphinx-book-theme
+sphinx-rtd-theme
 myst-parser
