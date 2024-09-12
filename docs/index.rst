@@ -10,6 +10,9 @@ mmeutils documentation
    :maxdepth: 2
    :caption: Contents:
 
+   References
+
+
 .. autofunction:: mmeutils.textio.strip_discard_empty_lines
 
 .. autofunction:: mmeutils.fileio.read_text_file_to_string
