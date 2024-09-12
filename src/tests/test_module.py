@@ -14,7 +14,7 @@ def test_always_success() -> None:
 
 def test_strip_discard_empty_lines_1() -> None:
     setup()
-    from mmeutils.textio import strip_discard_empty_lines
+    from mmeutils.text import strip_discard_empty_lines
 
     test_1 = """
           

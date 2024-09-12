@@ -14,7 +14,7 @@ mmeutils documentation
    references
 
 
-.. autofunction:: mmeutils.textio.strip_discard_empty_lines
+.. autofunction:: mmeutils.text.strip_discard_empty_lines
 
 .. autofunction:: mmeutils.fileio.read_text_file_to_string
 
