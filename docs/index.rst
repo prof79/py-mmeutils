@@ -10,7 +10,7 @@ mmeutils documentation
    :maxdepth: 2
    :caption: Contents:
 
-   index
+   genindex
    references
 
 
