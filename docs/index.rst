@@ -6,6 +6,8 @@
 mmeutils documentation
 ======================
 
+A simple collection of personal Python utility functions required in multiple hobbyist projects.
+
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
@@ -13,12 +15,3 @@ mmeutils documentation
    apidoc/modules
    internal
    genindex
-
-
-Functions at a glance:
-
-.. autofunction:: mmeutils.text.strip_discard_empty_lines
-
-.. autofunction:: mmeutils.fileio.read_text_file_to_string
-
-.. autofunction:: mmeutils.fileio.validate_json_file

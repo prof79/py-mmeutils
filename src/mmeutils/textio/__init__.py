@@ -1,8 +1,9 @@
 """Text Input/Output Utility Functions"""
 
 
-from typing import List
+def print_error(message: str) -> None:
+    print(message)
 
 
-__all__: List[str] = [
-]
+def print_warning(message: str) -> None:
+    print(message)
