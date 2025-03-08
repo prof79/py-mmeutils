@@ -1,7 +1,9 @@
 """Text Processing Utility Functions"""
 
 
-from typing import Iterable, List
+import io
+
+from typing import Iterable, List, Union
 
 
 __all__: List[str] = [
@@ -9,7 +11,10 @@ __all__: List[str] = [
 ]
 
 
-def strip_discard_empty_lines(lines: Iterable[str]) -> List[str]:
+LineProvider = Union[Iterable[str], io.TextIOWrapper]
+
+
+def strip_discard_empty_lines(lines: LineProvider) -> List[str]:
     """Sanitizes string lines in an iterable such that:
 
     * Leading and trailing whitespace is discarded ("strip()")

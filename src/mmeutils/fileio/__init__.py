@@ -13,10 +13,11 @@ __all__: List[str] = [
 import json
 
 from logging import debug
+import os
 from pathlib import Path
 
 
-def read_text_file_to_string(file_name: Union[str, Path]) -> str:
+def read_text_file_to_string(file_name: Union[str, bytes, os.PathLike]) -> str:
     """Reads text file contents into a single string.
 
     Lines will be normalized ie. stripped and empty lines discarded.
@@ -35,7 +36,7 @@ def read_text_file_to_string(file_name: Union[str, Path]) -> str:
         return '\n'.join(lines)
 
 
-def validate_json_file(file_name: Union[str, Path]) -> bool:
+def validate_json_file(file_name: Union[str, bytes, os.PathLike]) -> bool:
     """Validate that a JSON file is neither empty nor invalid.
 
     Empty means all whitespace, an empty object or an empty array.

@@ -9,6 +9,7 @@ Subpackages
 
    mmeutils.common
    mmeutils.datetime
+   mmeutils.decorators
    mmeutils.errors
    mmeutils.fileio
    mmeutils.text

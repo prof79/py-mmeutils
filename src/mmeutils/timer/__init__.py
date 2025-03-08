@@ -4,13 +4,26 @@ This is based on https://realpython.com/python-timer/ with
 minor modifications.
 """
 
+#region Imports
 
 import time
 
 from contextlib import ContextDecorator
 from dataclasses import dataclass, field
-from typing import Any, Callable, ClassVar, Dict, Optional
+from typing import Any, Callable, ClassVar, Dict, List, Optional
 
+#endregion
+
+#region Exports
+
+__all__: List[str] = [
+    'Timer',
+    'TimerError',
+]
+
+#endregion
+
+#region Classes
 
 class TimerError(Exception):
     """A custom exception used to report errors using the Timer class."""
@@ -70,3 +83,5 @@ class Timer(ContextDecorator):
     def __exit__(self, *exc_info: Any) -> None:
         """Stops the context manager timer."""
         self.stop()
+
+#endregion

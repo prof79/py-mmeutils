@@ -34,3 +34,16 @@ Feels like ...
     result_1 = strip_discard_empty_lines(test_1.split('\n'))
 
     assert result_1 == expected_1
+
+
+def test_strip_rich_tags_1() -> None:
+    setup()
+    from mmeutils.textio import strip_rich_tags
+
+    test_1 = 'Yo! I got [red]red shoes[/] for my [bold][cyan]momma[/cyan][/]!!!'
+
+    expected_1 = 'Yo! I got red shoes for my momma!!!'
+
+    result_1 = strip_rich_tags(test_1)
+
+    assert result_1 == expected_1
