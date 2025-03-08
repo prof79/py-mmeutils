@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+### 0.3.0
+
+Added a simple HTTP GET with retry function plus some doc stuff.
+
 ### 0.2.0
 
 * Added a `decorators` submodule.

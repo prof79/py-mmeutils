@@ -4,12 +4,15 @@
 
 from rich.text import Text
 from typing import List
+from warnings import warn
 
 #enregion
 
 #region Exports
 
 __all__: List[str] = [
+    'print_error',
+    'print_warning',
     'strip_rich_tags',
 ]
 
@@ -18,10 +21,12 @@ __all__: List[str] = [
 #region Functions
 
 def print_error(message: str) -> None:
+    """Deprecated stub for legacy code. Just uses `print()`."""
     print(message)
 
 
 def print_warning(message: str) -> None:
+    """Deprecated stub for legacy code. Just uses `print()`."""
     print(message)
 
 
