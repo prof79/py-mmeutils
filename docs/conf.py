@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'mmeutils'
-copyright = '2024, Markus M. Egger'
+copyright = '2024-2025, Markus M. Egger'
 author = 'Markus M. Egger'
 
 # -- General configuration ---------------------------------------------------
@@ -28,6 +28,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_rtd_theme'
 #html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
+
+#html_css_files = [
+#    'css/rtd_dark.css',
+#]
 
 # -- Paths for modules -------------------------------------------------------
 # https://stackoverflow.com/questions/53668052/sphinx-cannot-find-my-python-files-says-no-module-named
