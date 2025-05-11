@@ -1,15 +1,17 @@
 # decorators.py
-# v5.2.0
+# v6.0.0
 
 """A collection of general-use Python function decorators."""
 
 #region Imports
 
 import functools
+import httpx
 import json
+import requests.exceptions as reqexc
 import time
 
-from requests.exceptions import HTTPError, ChunkedEncodingError, ConnectionError, Timeout
+#from requests.exceptions import HTTPError, ChunkedEncodingError, ConnectionError, Timeout
 from typing import Callable, List
 
 #endregion
@@ -42,10 +44,13 @@ def retry_http(func: Callable, *, retries: int=3, sleep: float=0.4) -> Callable:
                 return result
             
             except (
-                        HTTPError,
-                        ConnectionError,
-                        Timeout,
-                        ChunkedEncodingError,
+                        reqexc.HTTPError,
+                        reqexc.ConnectionError,
+                        reqexc.Timeout,
+                        reqexc.ChunkedEncodingError,
+                        httpx.HTTPError,
+                        httpx.ConnectError,
+                        httpx.TimeoutException,
                     ):
 
                 retries -= 1

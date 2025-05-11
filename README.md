@@ -12,6 +12,11 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.4.0
+
+Added `httpx` support to `decorators` and preliminary support to `web.http` with a separate function.
+More like union parameters in `web.m3u8` or the like has to be evaluated.
+
 ### 0.3.0
 
 Added a simple HTTP GET with retry function plus some doc stuff.
