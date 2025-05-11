@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.4.2
+
+Properly documented `timer.Timer`.
+
 ## 0.4.1
 
 GitHub Workflow needed to be fixed, no code changes.
