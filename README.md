@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.4.1
+
+GitHub Workflow needed to be fixed, no code changes.
+
 ## 0.4.0
 
 Added `httpx` support to `decorators` and preliminary support to `web.http` with a separate function.
