@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.5.6
+
+Interfaces were incorrect.
+
 ## 0.5.5
 
 Fix decorators logic error.
