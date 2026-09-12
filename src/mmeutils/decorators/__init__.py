@@ -1,5 +1,5 @@
 # decorators.py
-# v6.0.0
+# v6.0.1
 
 """A collection of general-use Python function decorators."""
 
@@ -30,7 +30,10 @@ __all__: List[str] = [
 #region Decorators
 
 def retry_http(func: Callable, *, retries: int=3, sleep: float=0.4) -> Callable:
-    """Retries a function call when an HTTP error occurs."""
+    """Retries a function call when an HTTP error occurs.
+
+    Supported web libraries: httpx, requests
+    """
 
     @functools.wraps(func)
     def retry_wrapper(*args, retries=retries, **kwargs):
