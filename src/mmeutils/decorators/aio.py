@@ -1,5 +1,5 @@
 # decorators/async.py
-# v1.0.0
+# v1.1.0
 
 """A collection of general-use Python asynchronous function decorators."""
 
@@ -30,7 +30,7 @@ __all__: List[str] = [
 
 #region Decorators
 
-async def retry_http_async(func: Callable[..., Awaitable], *, retries: int=3, sleep: float=0.4) -> Callable[..., Awaitable]:
+def retry_http_async(func: Callable[..., Awaitable], *, retries: int=3, sleep: float=0.4) -> Callable[..., Awaitable]:
     """Retries an async function call when an HTTP error occurs.
     
     Supported web libraries: aiohttp, httpx
@@ -67,7 +67,7 @@ async def retry_http_async(func: Callable[..., Awaitable], *, retries: int=3, sl
     return retry_wrapper
 
 
-async def retry_empty_dict_async(func: Callable[..., Awaitable[Dict]], *, retries: int=3) -> Callable[..., Awaitable[Dict]]:
+def retry_empty_dict_async(func: Callable[..., Awaitable[Dict]], *, retries: int=3) -> Callable[..., Awaitable[Dict]]:
     """Retries an async function call when an empty dictionary is returned."""
 
     @functools.wraps(func)
@@ -84,7 +84,7 @@ async def retry_empty_dict_async(func: Callable[..., Awaitable[Dict]], *, retrie
     return retry_wrapper
 
 
-async def retry_json_error_async(func: Callable[..., Awaitable], *, retries: int=3) -> Callable[..., Awaitable]:
+def retry_json_error_async(func: Callable[..., Awaitable], *, retries: int=3) -> Callable[..., Awaitable]:
     """Retries an async function call when a JSON decode error occurs."""
 
     @functools.wraps(func)
@@ -103,7 +103,7 @@ async def retry_json_error_async(func: Callable[..., Awaitable], *, retries: int
     return retry_wrapper
 
 
-async def retry_on_exception_async(func: Callable[..., Awaitable], *, retries: int=3) -> Callable[..., Awaitable]:
+def retry_on_exception_async(func: Callable[..., Awaitable], *, retries: int=3) -> Callable[..., Awaitable]:
     """Retries an async function call when any exception (`Exception`) is raised."""
 
     @functools.wraps(func)
