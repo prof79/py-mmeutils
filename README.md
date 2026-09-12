@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.5.4
+
+Package dependencies fixed.
+
 ## 0.5.3
 
 Fixed conflicting naming.
