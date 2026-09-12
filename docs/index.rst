@@ -8,6 +8,10 @@ mmeutils documentation
 
 A simple collection of personal Python utility functions required in multiple hobbyist projects.
 
+This page: https://mmeutils.readthedocs.io
+
+Package source code: https://github.com/prof79/py-mmeutils
+
 .. toctree::
    :maxdepth: 3
    :caption: Contents:

@@ -12,6 +12,11 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.5.2
+
+Added async decorators under `decorators.async`.
+Fixed build script. Package metadata fix.
+
 ## 0.4.2
 
 Properly documented `timer.Timer`.
