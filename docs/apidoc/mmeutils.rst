@@ -10,7 +10,7 @@ Subpackages
    mmeutils.common
    mmeutils.datetime
    mmeutils.decorators
-   mmeutils.decorators.async
+   mmeutils.decorators.aio
    mmeutils.errors
    mmeutils.fileio
    mmeutils.text

@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.5.3
+
+Fixed conflicting naming.
+
 ## 0.5.2
 
 Added async decorators under `decorators.async`.
