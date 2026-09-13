@@ -12,6 +12,10 @@ $ py -m pip install mmeutils
 
 ## Version History
 
+## 0.5.8
+
+Added redirect handling to HTTP retry functions.
+
 ## 0.5.7
 
 Added asynchronous HTTP retry function.

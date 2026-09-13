@@ -56,6 +56,7 @@ def get_with_retry_httpx(
             url: str,
             *,
             client: Optional[httpx.Client],
+            follow_redirects: bool=True,
         ) -> httpx.Response:
 
     """Helper function to perform a simple GET web request with retries.
@@ -66,15 +67,18 @@ def get_with_retry_httpx(
 
     :param client: An optional `httpx.Client` object
         to use for the request.
+
+    :param follow_redirects: Follow redirects by default.
+    :type follow_redirects: bool
     
     :return: An `httpx.Response`.
     :rtype: httpx.Response
     """
     if client:
-        return client.get(url)
+        return client.get(url, follow_redirects=follow_redirects)
     
     else:
-        return httpx.get(url)
+        return httpx.get(url, follow_redirects=follow_redirects)
 
 
 @retry_http_async
@@ -82,6 +86,7 @@ async def get_with_retry_async(
             url: str,
             *,
             client: Optional[httpx.AsyncClient],
+            follow_redirects: bool=True,
         ) -> httpx.Response:
 
     """Helper function to perform a simple GET web request with retries.
@@ -92,15 +97,18 @@ async def get_with_retry_async(
 
     :param client: An optional `httpx.AsyncClient` object
         to use for the request.
-    
+
+    :param follow_redirects: Follow redirects by default.
+    :type follow_redirects: bool
+
     :return: An `httpx.Response`.
     :rtype: httpx.Response
     """
     if client:
-        return await client.get(url)
+        return await client.get(url, follow_redirects=follow_redirects)
     
     else:
         async with httpx.AsyncClient() as client:
-            return await client.get(url)
+            return await client.get(url, follow_redirects=follow_redirects)
 
 #endregion
