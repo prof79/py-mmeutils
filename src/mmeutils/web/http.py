@@ -1,5 +1,5 @@
 # http.py
-# v0.4.0
+# v0.5.0
 
 """HTTP Utility Functions"""
 
@@ -11,6 +11,7 @@ import requests
 from typing import List, Optional
 
 from ..decorators import retry_http
+from ..decorators.aio import retry_http_async
 
 #endregion
 
@@ -74,5 +75,32 @@ def get_with_retry_httpx(
     
     else:
         return httpx.get(url)
+
+
+@retry_http_async
+async def get_with_retry_async(
+            url: str,
+            *,
+            client: Optional[httpx.AsyncClient],
+        ) -> httpx.Response:
+
+    """Helper function to perform a simple GET web request with retries.
+    This variant uses asynchronous httpx instead of requests.
+
+    :param url: The URL to fetch.
+    :type url: str
+
+    :param client: An optional `httpx.AsyncClient` object
+        to use for the request.
+    
+    :return: An `httpx.Response`.
+    :rtype: httpx.Response
+    """
+    if client:
+        return await client.get(url)
+    
+    else:
+        async with httpx.AsyncClient() as client:
+            return await client.get(url)
 
 #endregion
